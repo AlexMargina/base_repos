@@ -10,8 +10,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
@@ -19,6 +21,44 @@ import java.io.IOException
 class JsonRocClient (val context: Context) : JsonClient {
 
     override suspend fun checkUser(expression: String): AuthResponse {
+        val url_check_user = "https://roc76.ru/check_user.php?"
+        val jsonRequest = "$expression"
+        val JSON = MediaType.get("application/json; charset=utf-8")
+        Log.d ("Maalmi_Json","checkUser: url_check_user: ${url_check_user}")
+        val client = OkHttpClient()
+        val body: RequestBody = RequestBody.create(JSON, jsonRequest)
+        val request = Request.Builder().url(url_check_user).post(body).build()
+        Log.d ("Maalmi_Json","checkUser: request: ${request.body().toString()}")
+        client.newCall(request).enqueue(object : Callback {
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.d ("Maalmi_Json","checkUser: onFailure: ${e.toString()}")
+                e.printStackTrace()
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                response.use {
+                    if (!response.isSuccessful) {
+                        throw IOException("Запрос к серверу не был успешен:" +
+                                " ${response.code()} ${response.message()}")
+                    }
+                    val headers1 = response.headers().toMultimap()
+                    // пример получения всех заголовков ответа
+                    for ((name, value) in headers1) {
+                        Log.d ("Maalmi_Json","checkUser: Server: ${response.header("Server")}")
+                        println("$name: $value")
+                    }
+                    // вывод тела ответа
+                    Log.d ("Maalmi_Json","checkUser: response: ${response.body()!!.string()}")
+                    println(response.body()!!.string())
+                }
+            }
+        })
+        return AuthResponse().apply { resultCode = 700 }
+    }
+
+
+     suspend fun checkUserGET(expression: String): AuthResponse {
 
         val url_check_user = "https://roc76.ru/check_user.php?$expression"
 
@@ -29,7 +69,9 @@ class JsonRocClient (val context: Context) : JsonClient {
             .build()
         Log.d ("Maalmi_Json","checkUser: url_check_user: ${url_check_user}")
         client.newCall(request).enqueue(object : Callback {
+
             override fun onFailure(call: Call, e: IOException) {
+                Log.d ("Maalmi_Json","checkUser: onFailure: ${e.toString()}")
                 e.printStackTrace()
             }
 
@@ -38,8 +80,8 @@ class JsonRocClient (val context: Context) : JsonClient {
                     if (!response.isSuccessful) {
                         throw IOException("Запрос к серверу не был успешен:" +
                                 " ${response.code()} ${response.message()}")
-                        Log.d ("Maalmi_Json","checkUser: Запрос к серверу не был успешен:" +
-                        " ${response.code()} ${response.message()}")
+//                        Log.d ("Maalmi_Json","checkUser: Запрос к серверу не был успешен:" +
+//                        " ${response.code()} ${response.message()}")
                     }
                     val headers1 = response.headers().toMultimap()
                     // пример получения всех заголовков ответа

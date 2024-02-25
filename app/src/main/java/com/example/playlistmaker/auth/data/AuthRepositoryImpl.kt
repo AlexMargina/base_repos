@@ -14,6 +14,7 @@ class AuthRepositoryImpl(
 
     override suspend fun checkUser (user: String, pass: String): ArrayList<String> {
         val expression: String = "user=$user&&pass=$pass"
+        Log.d ("MAALMI_Repo","checkUser $expression")
         //val request: UserAuthRequest = UserAuthRequest(expression)
         //val response = rocClient.doRequest(expression)
         val response = jsonClient.checkUser(expression)
