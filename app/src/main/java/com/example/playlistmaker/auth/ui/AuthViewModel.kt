@@ -26,9 +26,16 @@ class AuthViewModel (
 
     fun checkUser (user: String, pass: String) {
         _stateLiveData.postValue(AuthState.Loading)
-        Log.d("MAALMI_AuthViewModel", "checkUser: $user, $pass")
-        val userResult = authInteractor.checkUser(user, pass)
-        processResult (userResult)
+        val userResult = arrayListOf<String>()
+        viewModelScope.launch {
+
+            Log.d("MAALMI_AuthViewModel_1", "checkUser: $user, $pass")
+            userResult.addAll (authInteractor.checkUser(user, pass))
+            Log.d("MAALMI_AuthViewModel_2", "userResult: ${userResult.size}, ${userResult.toString()}")
+            processResult (userResult)
+        }
+        Log.d("MAALMI_AuthViewModel_3", "userResult: ${userResult.size}, ${userResult.toString()}")
+
     }
 
     fun fillData() {
@@ -39,6 +46,7 @@ class AuthViewModel (
     }
 
     private fun processResult(service: ArrayList<String>) {
+        Log.d("MAALMI_AuthViewModel_4", "userResult: ${service.size}, ${service.toString()}")
         if (service.size==0) {
             _stateLiveData.postValue(AuthState.Empty(context.getString(R.string.empty_favorites)))
         } else {

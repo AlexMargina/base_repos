@@ -4,6 +4,9 @@ import android.content.Context
 import android.media.MediaPlayer
 import androidx.room.Room
 import com.example.playlistmaker.MUSIC_MAKER_PREFERENCES
+import com.example.playlistmaker.auth.data.internet.RetrofitRocClient
+import com.example.playlistmaker.auth.data.internet.RocApi
+import com.example.playlistmaker.auth.data.internet.RocClient
 import com.example.playlistmaker.media.data.db.AppDatabase
 import com.example.playlistmaker.search.data.network.ITunesSearchApi
 import com.example.playlistmaker.search.data.network.NetworkClient
@@ -19,6 +22,18 @@ val dataModule = module {
 
     factory <MediaPlayer>{
         MediaPlayer()
+    }
+
+    single<RocApi> {
+        Retrofit.Builder()
+            .baseUrl("https://roc76.ru/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(RocApi::class.java)
+    }
+
+    single<RocClient> {
+        RetrofitRocClient(get(), androidContext())
     }
 
     single<ITunesSearchApi> {
