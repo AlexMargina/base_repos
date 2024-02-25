@@ -4,6 +4,8 @@ import android.content.Context
 import android.media.MediaPlayer
 import androidx.room.Room
 import com.example.playlistmaker.MUSIC_MAKER_PREFERENCES
+import com.example.playlistmaker.auth.data.internet.JsonClient
+import com.example.playlistmaker.auth.data.internet.JsonRocClient
 import com.example.playlistmaker.auth.data.internet.RetrofitRocClient
 import com.example.playlistmaker.auth.data.internet.RocApi
 import com.example.playlistmaker.auth.data.internet.RocClient
@@ -34,6 +36,10 @@ val dataModule = module {
 
     single<RocClient> {
         RetrofitRocClient(get(), androidContext())
+    }
+
+    single<JsonClient> {
+        JsonRocClient(get())
     }
 
     single<ITunesSearchApi> {
