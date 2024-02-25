@@ -20,7 +20,7 @@ import org.koin.dsl.module
 
 val interactorModule = module {
 
-    single<AuthInteractor> { AuthInteractorImpl() }
+    single<AuthInteractor> { AuthInteractorImpl(get()) }
 
     factory<MediaPlayerInteractor> {
         MediaPlayerInteractorImpl(get(), get(), get())

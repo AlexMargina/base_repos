@@ -1,5 +1,7 @@
 package com.example.playlistmaker.di
 
+import com.example.playlistmaker.auth.data.AuthRepositoryImpl
+import com.example.playlistmaker.auth.domain.AuthRepository
 import com.example.playlistmaker.media.data.FavoriteRepositoryImpl
 import com.example.playlistmaker.media.data.NewPlaylistRepositoryImpl
 import com.example.playlistmaker.media.data.PlaylistRepositoryImpl
@@ -20,6 +22,10 @@ import com.example.playlistmaker.sharing.domain.ExternalNavigator
 import org.koin.dsl.module
 
 val repositoryModule = module {
+
+    single<AuthRepository> {
+        AuthRepositoryImpl(get())
+    }
 
     factory<MediaPlayerRepository> {
         MediaPlayerRepositoryImpl(get())

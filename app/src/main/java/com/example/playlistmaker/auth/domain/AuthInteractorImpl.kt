@@ -1,14 +1,11 @@
 package com.example.playlistmaker.auth.domain
 
+import com.example.playlistmaker.auth.data.AuthRepositoryImpl
 import kotlinx.coroutines.flow.Flow
 
-class AuthInteractorImpl : AuthInteractor{
-    override fun checkUser(): ArrayList<String> {
-//        TODO("Not yet implemented")
-        val result = arrayListOf<String>()
-        result.add(0, "LAR")
-        result.add(1, "figaro")
-        return result
+class AuthInteractorImpl (private val authRepository: AuthRepository) : AuthInteractor{
+    override fun checkUser (user: String, pass: String): ArrayList<String> {
+        return authRepository.checkUser (user, pass)
     }
 
 }

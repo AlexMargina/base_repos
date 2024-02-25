@@ -27,7 +27,7 @@ class AuthViewModel (
     fun checkUser (user: String, pass: String) {
         _stateLiveData.postValue(AuthState.Loading)
         Log.d("MAALMI_AuthViewModel", "checkUser: $user, $pass")
-        val userResult = authInteractor.checkUser()
+        val userResult = authInteractor.checkUser(user, pass)
         processResult (userResult)
     }
 
