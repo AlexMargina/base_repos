@@ -1,5 +1,7 @@
 package com.example.playlistmaker.di
 
+import com.example.playlistmaker.auth.domain.AuthInteractor
+import com.example.playlistmaker.auth.domain.AuthInteractorImpl
 import com.example.playlistmaker.media.domain.favorite.FavoriteInteractor
 import com.example.playlistmaker.media.domain.favorite.FavoriteInteractorImpl
 import com.example.playlistmaker.media.domain.newPlaylist.NewPlaylistInteractor
@@ -17,6 +19,8 @@ import com.example.playlistmaker.sharing.domain.SharingInteractorImpl
 import org.koin.dsl.module
 
 val interactorModule = module {
+
+    single<AuthInteractor> { AuthInteractorImpl() }
 
     factory<MediaPlayerInteractor> {
         MediaPlayerInteractorImpl(get(), get(), get())

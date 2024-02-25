@@ -1,5 +1,6 @@
 package com.example.playlistmaker.di
 
+import com.example.playlistmaker.auth.ui.AuthViewModel
 import com.example.playlistmaker.main.ui.MainViewModel
 import com.example.playlistmaker.media.domain.playlist.PlaylistInteractor
 import com.example.playlistmaker.media.ui.displayPlaylist.DisplayPlaylistViewModel
@@ -16,6 +17,10 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
+
+    viewModel {
+        AuthViewModel (get(), get())
+    }
 
     viewModel {
         MainViewModel ()
