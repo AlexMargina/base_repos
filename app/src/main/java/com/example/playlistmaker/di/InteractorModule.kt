@@ -12,6 +12,8 @@ import com.example.playlistmaker.player.domain.MediaPlayerInteractor
 import com.example.playlistmaker.player.domain.MediaPlayerInteractorImpl
 import com.example.playlistmaker.search.domain.SearchInteractor
 import com.example.playlistmaker.search.domain.SearchInteractorImpl
+import com.example.playlistmaker.servicesGz.domain.ServicesGzInteractor
+import com.example.playlistmaker.servicesGz.domain.ServicesGzInteractorImpl
 import com.example.playlistmaker.setting.domain.SettingsInteractor
 import com.example.playlistmaker.setting.domain.SettingsInteractorImpl
 import com.example.playlistmaker.sharing.domain.SharingInteractor
@@ -21,6 +23,8 @@ import org.koin.dsl.module
 val interactorModule = module {
 
     single<AuthInteractor> { AuthInteractorImpl(get()) }
+
+    single<ServicesGzInteractor> { ServicesGzInteractorImpl(get()) }
 
     factory<MediaPlayerInteractor> {
         MediaPlayerInteractorImpl(get(), get(), get())

@@ -1,7 +1,6 @@
 package com.example.playlistmaker.auth.ui
 
 
-import com.example.playlistmaker.search.domain.TrackModel
 
 sealed class AuthState {
 

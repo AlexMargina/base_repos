@@ -1,4 +1,4 @@
-package com.example.playlistmaker.auth.ui
+package com.example.playlistmaker.servicesGz.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import com.example.playlistmaker.databinding.FragmentAuthBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AuthFragment(): Fragment() {
+class ServicesGzFragment(): Fragment() {
 
     private lateinit var binding: FragmentAuthBinding
-    private val viewModel by viewModel<AuthViewModel>()
+    private val viewModel by viewModel<ServicesGzViewModel>()
     private val servicesGZ = ArrayList<String>()
 
 
@@ -43,12 +43,12 @@ class AuthFragment(): Fragment() {
         viewModel.fillData()
     }
 
-    private fun userIsExist(state: AuthState) {
+    private fun userIsExist(state: ServicesGzState) {
         when (state) {
-            is AuthState.Empty -> {
+            is ServicesGzState.Empty -> {
                 Toast.makeText(context, "Нет такого пользователя, проверьте интернет", Toast.LENGTH_LONG)
             }
-            is AuthState.Content -> {
+            is ServicesGzState.Content -> {
                 servicesGZ.clear()
                 servicesGZ.addAll(state.services)
                 Log.d("MAALMI_Auth", "userIsExist($servicesGZ) ")
@@ -65,7 +65,7 @@ class AuthFragment(): Fragment() {
 
 
     companion object {
-        fun newInstance() = AuthFragment().apply {
+        fun newInstance() = ServicesGzFragment().apply {
             arguments = Bundle().apply {}
         }
     }

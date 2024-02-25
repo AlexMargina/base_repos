@@ -15,6 +15,8 @@ import com.example.playlistmaker.search.data.SearchDataStorage
 import com.example.playlistmaker.search.data.SearchRepositoryImpl
 import com.example.playlistmaker.search.data.SharedPrefsUtils
 import com.example.playlistmaker.search.domain.SearchRepository
+import com.example.playlistmaker.servicesGz.data.ServicesGzRepositoryImpl
+import com.example.playlistmaker.servicesGz.domain.ServicesGzRepository
 import com.example.playlistmaker.setting.data.SettingsRepositoryImpl
 import com.example.playlistmaker.setting.domain.SettingsRepository
 import com.example.playlistmaker.sharing.data.ExternalNavigatorImpl
@@ -25,6 +27,10 @@ val repositoryModule = module {
 
     single<AuthRepository> {
         AuthRepositoryImpl(get())
+    }
+
+    single<ServicesGzRepository> {
+        ServicesGzRepositoryImpl(get())
     }
 
     factory<MediaPlayerRepository> {
