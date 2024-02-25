@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:theme="@style/Theme.PlaylistMaker"
+    tools:context="com.example.playlistmaker.main.ui.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frame_layout_height"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+
+
+        <TextView
+            style="@style/TextBigStyle"
+            android:padding="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/size_s"
+            android:text="@string/mediateca" />
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabTextAppearance="@style/TextTabLayoutStyle"
+        app:tabIndicatorColor="@color/text_color"
+        app:tabTextColor="@color/text_color" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

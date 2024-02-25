@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Создатель плэй-листа</string>
+    <string name="buton_search">Поиск</string>
+    <string name="buton_media">Медиатека</string>
+    <string name="buton_settings">Настройки</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="support">Написать в поддержку</string>
+    <string name="agreement">Пользовательское соглашение</string>
+    <string name="whitespace"> </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Сообщения</string>
+    <string name="sync_header">Sync</string>
+    <string name="title_activity_settings">Экран настроек</string>
+    <string name="title_activity_media">МЕДИАТЕКА</string>
+    <string name="title_activity_search">Поиск</string>
+    <string name="input_hint">Поиск</string>
+
+    <!-- Setting activity -->
+    <string name="extra_send" translatable="false">https://practicum.yandex.ru/android-developer/</string>
+    <string name="send_title" translatable="false">Курс Android-разработчик</string>
+    <string name="extra_mail" translatable="false">"marginali@ya.ru"</string>
+    <string name="extra_subject" translatable="false">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="extra_text" translatable="false">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="ofer_url" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
+
+    <!-- Search activity -->
+    <string name="not_internet">Проблемы со связью\n \nЗагрузка не удалась. Проверьте подключение к интернету \n</string>
+    <string name="download_failed">Загрузка не удалась. Проверьте подключение к интернету</string>
+    <string name="check_internet">Проверьте подключение к интернету</string>
+    <string name="update">Обновить</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="you_searched">Вы искали</string>
+    <string name="contentDescriptionDelete">Удалить</string>
+    <string name="not_found">Ничего не нашлось</string>
+
+    <!-- Player activity -->
+    <string name="duration">Длительность</string>
+    <string name="album">Альбом</string>
+    <string name="year">Год</string>
+    <string name="genre">Жанр</string>
+    <string name="country">Страна</string>
+    <string name="rf">Россия</string>
+    <string name="null_time" translatable="false">00:00</string>
+    <string name="mediateca">Медиатека</string>
+    <string name="new_playlist">Новый плэйлист</string>
+    <string name="name_playlist">Название*</string>
+    <string name="fav_tracks">Избранные песни</string>
+    <string name="playlists">Плэйлисты</string>
+    <string name="empty_playlist">Вы не создали
+        \nни одного плейлиста</string>
+    <string name="empty_favorites">Ваша медиатека пуста</string>
+    <string name="descript_playlist">Описание</string>
+    <string name="create">Создать</string>
+    <string name="add_to_playlist">Добавить в плейлист</string>
+    <string name="title_dialog_new_playlist">Завершить создание плейлиста?</string>
+    <string name="message_dialog_new_playlist">Все несохраненные данные будут потеряны</string>
+    <string name="cancel_button">Отмена</string>
+    <string name="finish_button">Завершить</string>
+    <string name="delete_button">Удалить</string>
+    <string name="delete_track">Удалить трэк</string>
+    <string name="really_delete_track"> Вы уверены, что хотите удалить трек из плейлиста?</string>
+    <string name="no_track_to_share">В этом плейлисте нет треков чтобы поделиться</string>
+    <string name="its_clear">Понятно</string>
+    <string name="no_track_in_playlist">В этом плейлисте еще нет треков</string>
+
+    <string name="delete_playlist">Удалить плейлист</string>
+    <string name="really_delete_playlist">Хотите удалить этот плейлист?</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="update_info">Редактировать информацию</string>
+    <string name="share">Поделиться</string>
+    <string name="save">Сохранить</string>
+    <string name="edit">Редактировать</string>
+    <string name="track">трек</string>
+    <string name="tracks_2">трека</string>
+    <string name="tracks">трэков</string>
+    <string name="minutes">минут</string>
+    <string name="minutes_2">минуты</string>
+    <string name="minute">минута</string>
+    <string name="playlist">Плэйлист</string>
+
+</resources>

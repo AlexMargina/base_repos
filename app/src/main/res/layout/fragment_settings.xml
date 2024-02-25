@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.ui.SettingsFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Первый контейнер: НАСТРОЙКИ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frame_layout_height"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+
+            <TextView
+                style="@style/TextBigStyle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/size_xs"
+                android:text="@string/buton_settings" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Второй контейнер: ТЕМНАЯ ТЕМА -->
+
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frame_layout_height"
+                android:layout_gravity="start"
+                android:layout_marginHorizontal="@dimen/size_l"
+                android:text="@string/dark_theme"
+                android:textSize="16sp"
+                app:thumbTint="@color/color_switch_dn"
+                app:trackTint="@color/edit_text_dn" />
+
+
+            <!-- Третий контейнер: ПОДЕЛИТЬСЯ... -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frame_layout_height">
+
+                <TextView
+                    style="@style/TextSmallStyle"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/share_app" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_share"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:backgroundTint="@color/background_icon"
+                    android:contentDescription="@string/share_app"
+                    android:foreground="@android:drawable/ic_menu_share"
+                    android:tooltipText="@string/share_app"
+                    tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+            </FrameLayout>
+
+            <!-- Четвертый контейнер: ТЕХПОДДЕРЖКА -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frame_layout_height">
+
+                <TextView
+                    style="@style/TextSmallStyle"
+                    android:layout_gravity="start|center_vertical"
+                    android:text="@string/support"
+                    tools:ignore="VisualLintOverlap" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_support"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:backgroundTint="@color/background_icon"
+                    android:contentDescription="@string/support"
+                    android:foreground="@drawable/support_draw1"
+                    android:tooltipText="@string/support"
+                    tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+            </FrameLayout>
+
+            <!-- Пятый контейнер: СОГЛАШЕНИЕ -->
+            <FrameLayout
+                android:id="@+id/frameLayout_ofer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frame_layout_height">
+
+                <TextView
+                    style="@style/TextSmallStyle"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/agreement" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_forward"
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/background_icon"
+                    android:contentDescription="@string/agreement"
+                    android:foreground="@drawable/forward"
+                    android:tooltipText="@string/agreement"
+                    tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,ImageContrastCheck" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
