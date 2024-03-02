@@ -4,10 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.util.Log
-import com.example.playlistmaker.auth.data.dto.AuthResponse
-import com.example.playlistmaker.auth.data.dto.UserAuthRequest
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType
@@ -15,12 +11,11 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.Response
-import org.json.JSONObject
 import java.io.IOException
 
 class JsonRocClient (val context: Context) : JsonClient {
 
-    override suspend fun checkUser(expression: String): AuthResponse {
+    override suspend fun checkUser(expression: String): com.example.playlistmaker.auth.data.dto.Responce {
         val url_check_user = "https://roc76.ru/check_user.php?"
         val jsonRequest = "$expression"
         val JSON = MediaType.get("application/json; charset=utf-8")
@@ -54,11 +49,11 @@ class JsonRocClient (val context: Context) : JsonClient {
                 }
             }
         })
-        return AuthResponse().apply { resultCode = 700 }
+        return com.example.playlistmaker.auth.data.dto.Responce().apply { resultCode = 700 }
     }
 
 
-     suspend fun checkUserGET(expression: String): AuthResponse {
+     suspend fun checkUserGET(expression: String): com.example.playlistmaker.auth.data.dto.Responce {
 
         val url_check_user = "https://roc76.ru/check_user.php?$expression"
 
@@ -75,7 +70,7 @@ class JsonRocClient (val context: Context) : JsonClient {
                 e.printStackTrace()
             }
 
-            override fun onResponse(call: Call, response: Response) {
+            override fun onResponse(call: Call, response: okhttp3.Response) {
                 response.use {
                     if (!response.isSuccessful) {
                         throw IOException("Запрос к серверу не был успешен:" +
@@ -118,9 +113,9 @@ class JsonRocClient (val context: Context) : JsonClient {
 
 
         if (! isOnline(context)) {
-            return AuthResponse().apply { resultCode = - 1 }
+            return com.example.playlistmaker.auth.data.dto.Responce().apply { resultCode = - 1 }
         }
-        return AuthResponse().apply { resultCode = 600 }
+        return com.example.playlistmaker.auth.data.dto.Responce().apply { resultCode = 600 }
     }
 
     fun isOnline(context: Context): Boolean {

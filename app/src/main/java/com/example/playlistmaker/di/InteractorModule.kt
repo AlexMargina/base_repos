@@ -1,6 +1,7 @@
 package com.example.playlistmaker.di
 
 import com.example.playlistmaker.auth.domain.AuthInteractor
+import com.example.playlistmaker.auth.data.internet.HttpUrlConnection
 import com.example.playlistmaker.auth.domain.AuthInteractorImpl
 import com.example.playlistmaker.media.domain.favorite.FavoriteInteractor
 import com.example.playlistmaker.media.domain.favorite.FavoriteInteractorImpl

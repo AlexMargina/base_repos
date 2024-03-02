@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.util.Log
-import com.example.playlistmaker.auth.data.dto.AuthResponse
+import com.example.playlistmaker.auth.data.dto.Responce
 import com.example.playlistmaker.auth.data.dto.UserAuthRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,10 +15,10 @@ class RetrofitRocClient(
     private val context: Context
 ) : RocClient {
 
-    override suspend fun doRequest(dto: Any): AuthResponse {
+    override suspend fun doRequest(dto: Any): Responce {
 
         if (! isOnline(context)) {
-            return AuthResponse().apply { resultCode = - 1 }
+            return Responce().apply { resultCode = - 1 }
         }
         Log.d("MAALMI_Retrofit", "dto (${dto.toString()})")
         if (dto is UserAuthRequest) {
@@ -27,11 +27,11 @@ class RetrofitRocClient(
                     val response = rocService.search(dto.expression)
                     response.apply { resultCode = 200 }
                 } catch (e: Throwable) {
-                    AuthResponse().apply { resultCode = 500 }
+                    Responce().apply { resultCode = 500 }
                 }
             }
         } else {
-            return AuthResponse().apply { resultCode = 400 }
+            return Responce().apply { resultCode = 400 }
         }
     }
 

@@ -13,13 +13,12 @@ import com.example.playlistmaker.search.domain.SearchRepository
 import com.example.playlistmaker.search.domain.TrackModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlin.coroutines.coroutineContext
 
 class SearchRepositoryImpl(
     private val networkClient: NetworkClient,
     private val searchDataStorage: SearchDataStorage,
     private val appDatabase: AppDatabase,
-    private val trackDbConvertor: TrackDbConvertor,
+    private val trackDbConvertor: TrackDbConvertor
 ) : SearchRepository {
 
 
