@@ -7,7 +7,7 @@ sealed class AuthState {
     object Loading : AuthState()
 
     data class Content(
-        val services: ArrayList<String>
+        val services: String
     ) : AuthState()
 
     data class Empty(

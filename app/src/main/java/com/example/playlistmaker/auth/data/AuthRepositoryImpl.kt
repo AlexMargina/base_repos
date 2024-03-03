@@ -11,12 +11,9 @@ class AuthRepositoryImpl(
     private val context: Context
 ): AuthRepository {
 
-    override suspend fun checkUser (user: String, pass: String): ArrayList<String> {
-        val result = arrayListOf<String>()
-
+    override suspend fun checkUser (user: String, pass: String): String {
         val params = "user='$user'&pass='$pass'"
         val userAuthResponce = httpConnection.checkUser(params)
-        result.add(0, userAuthResponce.results)
-        return result
+        return userAuthResponce.results
     }
 }

@@ -1,9 +1,7 @@
 package com.example.playlistmaker.auth.domain
 
 
-import kotlinx.coroutines.flow.Flow
-
 interface AuthInteractor {
-    suspend  fun checkUser(user: String, pass: String): ArrayList<String>
+    suspend  fun checkUser(user: String, pass: String): String
 
 }

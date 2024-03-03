@@ -46,17 +46,16 @@ class AuthFragment(): Fragment() {
     private fun userIsExist(state: AuthState) {
         when (state) {
             is AuthState.Empty -> {
-                Toast.makeText(context, "Нет такого пользователя, проверьте интернет", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Нет такого пользователя, проверьте интернет", Toast.LENGTH_LONG).show()
             }
             is AuthState.Content -> {
-                servicesGZ.clear()
-                servicesGZ.addAll(state.services)
+                (state.services)
                 Log.d("MAALMI_Auth", "userIsExist($servicesGZ) ")
                 //findNavController().navigate(R.id.playerFragment)
-                if (servicesGZ.size>0 ) binding.textAuth.text = servicesGZ[0].toString()
+                binding.textAuth.text = state.services
             }
             else -> {
-                Toast.makeText(context, "Проверьте пользователя и пароль", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Подождите...", Toast.LENGTH_SHORT).show()
             }
         }
 
