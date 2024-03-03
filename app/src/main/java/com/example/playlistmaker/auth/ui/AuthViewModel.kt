@@ -19,11 +19,6 @@ class AuthViewModel (
     private val _stateLiveData = MutableLiveData<AuthState>()
     val stateLiveData: LiveData<AuthState> = _stateLiveData
 
-    init {
-
-        Log.d("MAALMI_FavoriteViewModel", "init")
-    }
-
     fun checkUser (user: String, pass: String) {
         _stateLiveData.postValue(AuthState.Loading)
         var responceCheckUser = ""
@@ -38,13 +33,6 @@ class AuthViewModel (
         }
         Log.d("MAALMI_AuthViewModel_3", "userResult: ${userResult.size}, ${userResult.toString()}")
 
-    }
-
-    fun fillData() {
-        _stateLiveData.postValue(AuthState.Loading)
-        viewModelScope.launch {
-
-        }
     }
 
     private fun processResult(responceCheckUser: String) {

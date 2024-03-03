@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.playlistmaker.R
 import com.example.playlistmaker.databinding.FragmentAuthBinding
+import com.example.playlistmaker.servicesGz.ui.ServicesGzFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AuthFragment(): Fragment() {
@@ -40,7 +43,6 @@ class AuthFragment(): Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.fillData()
     }
 
     private fun userIsExist(state: AuthState) {
@@ -51,7 +53,8 @@ class AuthFragment(): Fragment() {
             is AuthState.Content -> {
                 (state.services)
                 Log.d("MAALMI_Auth", "userIsExist($servicesGZ) ")
-                //findNavController().navigate(R.id.playerFragment)
+                val user = binding.edName.text.toString().trim()
+                findNavController().navigate (R.id.servicesFragment, ServicesGzFragment.passArgs(user, state.services))
                 binding.textAuth.text = state.services
             }
             else -> {

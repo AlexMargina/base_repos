@@ -24,25 +24,22 @@ class ServicesGzViewModel (
         Log.d("MAALMI_FavoriteViewModel", "init")
     }
 
-    fun checkUser (user: String, pass: String) {
+    fun getServices (position: String) {
         _stateLiveData.postValue(ServicesGzState.Loading)
-        Log.d("MAALMI_AuthViewModel", "checkUser: $user, $pass")
-        val userResult = servicesGzInteractor.checkUser(user, pass)
-        processResult (userResult)
-    }
-
-    fun fillData() {
-        _stateLiveData.postValue(ServicesGzState.Loading)
+        Log.d("MAALMI_AuthViewModel", "checkUser: $position, ")
         viewModelScope.launch {
-
+            val userResult = servicesGzInteractor.getServices(position)
+            processResult(userResult)
         }
     }
 
-    private fun processResult(service: ArrayList<String>) {
-        if (service.size==0) {
-            _stateLiveData.postValue(ServicesGzState.Empty(context.getString(R.string.empty_favorites)))
+
+
+    private fun processResult(services: ArrayList<String>) {
+        if (services.size>0) {
+             _stateLiveData.postValue(ServicesGzState.Content(services))
         } else {
-            _stateLiveData.postValue(ServicesGzState.Content(service))
+            _stateLiveData.postValue(ServicesGzState.Empty(context.getString(R.string.empty_favorites)))
         }
     }
 

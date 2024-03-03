@@ -1,13 +1,18 @@
 package com.example.playlistmaker.servicesGz.data
 
-import android.content.Context
+import com.example.playlistmaker.auth.data.internet.HttpConnection
 import com.example.playlistmaker.servicesGz.domain.ServicesGzRepository
 
-class ServicesGzRepositoryImpl(context: Context): ServicesGzRepository {
-    override fun checkUser (user: String, pass: String): ArrayList<String> {
+class ServicesGzRepositoryImpl(private val httpConnection: HttpConnection): ServicesGzRepository {
+    override suspend fun getServices(position: String): ArrayList<String> {
+        val params = "position='$position'"
+        val userAuthResponce = httpConnection.getServices(params)
+        return userAuthResponce
+
         val result = arrayListOf<String>()
-        result.add(0, user)
-        result.add(0, pass)
+        result.add(0, "LFK")
+        result.add(0, "massaj")
+        result.add(0, "psiholof")
         return result
     }
 }

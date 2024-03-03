@@ -48,5 +48,42 @@ class HttpUrlConnection (val context: Context): HttpConnection {
             }
         }
     }
+
+    override suspend fun getServices(params: String): ArrayList<String> {
+        var result  = arrayListOf<String>()
+        val phpComand = "check_user.php?"
+        val url = URL("$domain$phpComand$params")
+        val httpURLConnection = url.openConnection() as HttpURLConnection
+        httpURLConnection.requestMethod = "GET"
+        httpURLConnection.setRequestProperty(
+            "Content-Type",
+            "application/json"
+        ) // The format of the content we're sending to the server
+        httpURLConnection.setRequestProperty(
+            "Accept",
+            "application/json"
+        ) // The format of response we want to get from the server
+        httpURLConnection.doInput = true
+        httpURLConnection.doOutput = true
+
+        if (! IsOnline().isOnline(context)) {
+            return result
+        }
+
+         withContext(Dispatchers.IO) {
+            httpURLConnection.connect()
+            val httpCode = httpURLConnection.responseCode
+
+            if (httpCode == 200) {
+
+                    httpURLConnection.inputStream.bufferedReader().lines().forEach { line -> result.add (line) }
+                    return@withContext result
+
+                } else {
+                return@withContext result
+            }
+         }
+        return result
+    }
 }
 
