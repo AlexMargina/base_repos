@@ -4,6 +4,8 @@ import android.content.Context
 import android.media.MediaPlayer
 import androidx.room.Room
 import com.example.playlistmaker.MUSIC_MAKER_PREFERENCES
+import com.example.playlistmaker.auth.data.internet.HttpConnection
+import com.example.playlistmaker.auth.data.internet.HttpUrlConnection
 import com.example.playlistmaker.auth.data.internet.JsonClient
 import com.example.playlistmaker.auth.data.internet.JsonRocClient
 import com.example.playlistmaker.auth.data.internet.RetrofitRocClient
@@ -32,6 +34,10 @@ val dataModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RocApi::class.java)
+    }
+
+    single <HttpConnection> {
+        HttpUrlConnection(get())
     }
 
     single<RocClient> {
