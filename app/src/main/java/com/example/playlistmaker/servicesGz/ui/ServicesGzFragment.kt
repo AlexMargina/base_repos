@@ -17,7 +17,7 @@ class ServicesGzFragment(): ListFragment() {
 
     private lateinit var binding: FragmentServicesGzBinding
     private val viewModel by viewModel<ServicesGzViewModel>()
-    private val servicesGZ = mutableListOf<String>()
+    private val servicesGZ = arrayListOf<String>()
     var user =""
     var position = ""
 
@@ -55,26 +55,6 @@ class ServicesGzFragment(): ListFragment() {
                 servicesGZ.clear()
 
                 servicesGZ.addAll(state.services)
-                servicesGZ.add("ЛФК5")
-                servicesGZ.add("Админ5")
-                servicesGZ.add(position.toString())
-                servicesGZ.add (user.toString())
-                servicesGZ.add("ЛФК4")
-                servicesGZ.add("Админ4")
-                servicesGZ.add(position.toString())
-                servicesGZ.add (0,user.toString())
-                servicesGZ.add(0, "ЛФК3")
-                servicesGZ.add(0, "Админ3")
-                servicesGZ.add(0, position.toString())
-                servicesGZ.add (0,user.toString())
-                servicesGZ.add(0, "ЛФК2")
-                servicesGZ.add(0, "Админ2")
-                servicesGZ.add(0, position.toString())
-                servicesGZ.add (0,user.toString())
-                servicesGZ.add(0, "ЛФК1")
-                servicesGZ.add(0, "Админ1")
-
-
                 servicesGZ.add(0, position.toString())
                 servicesGZ.add (0,user.toString())
 
@@ -82,7 +62,8 @@ class ServicesGzFragment(): ListFragment() {
                 setListAdapter(listAdapter)
 
                 binding.list.adapter = listAdapter
-                Log.d("MAALMI_Auth", "userIsExist($servicesGZ) ")
+                Log.d("MAALMI_ServicesGzFragment", "services.size= ${state.services.size} ")
+
                 //findNavController().navigate(R.id.playerFragment)
 
             }

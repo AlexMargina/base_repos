@@ -26,7 +26,7 @@ class ServicesGzViewModel (
 
     fun getServices (position: String) {
         _stateLiveData.postValue(ServicesGzState.Loading)
-        Log.d("MAALMI_AuthViewModel", "checkUser: $position, ")
+        Log.d("MAALMI_ServicesGzViewModel", "getServices: $position, ")
         viewModelScope.launch {
             val userResult = servicesGzInteractor.getServices(position)
             processResult(userResult)
