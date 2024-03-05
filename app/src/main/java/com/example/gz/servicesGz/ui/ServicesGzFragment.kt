@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.ListFragment
+import androidx.navigation.fragment.findNavController
+import com.example.gz.klassGz.ui.KlassGzFragment
 import com.example.playlistmaker.databinding.FragmentServicesGzBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -56,7 +58,6 @@ class ServicesGzFragment(): ListFragment() {
                 servicesGZ.add(service.usluga)
             }
                 servicesGZ.add(0, "=== ВЫБЕРИТЕ УСЛУГУ ГЗ:  ")
-                servicesGZ.add(0, position.toString())
                 servicesGZ.add (0,user.toString())
 
                 val listAdapter = ArrayAdapter (binding.list.context, R.layout.simple_list_item_1, servicesGZ)
@@ -64,8 +65,12 @@ class ServicesGzFragment(): ListFragment() {
 
                 binding.list.adapter = listAdapter
 
+                binding.list.setOnItemClickListener { adapterView, view, i, l ->
+                    if (i>1) {
+                        findNavController().navigate (com.example.playlistmaker.R.id.klassFragment, KlassGzFragment.passArgs(user, servicesGZ[i]))
+                    }
+                }
 
-                //findNavController().navigate (com.example.playlistmaker.R.id.servicesFragment, ServicesGzFragment.passArgs(user, ""))
                 //findNavController().navigate(R.id.playerFragment)
 
             }

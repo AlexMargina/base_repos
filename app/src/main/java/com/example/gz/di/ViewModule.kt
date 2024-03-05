@@ -1,6 +1,7 @@
 package com.example.gz.di
 
 import com.example.gz.auth.ui.AuthViewModel
+import com.example.gz.klassGz.ui.KlassGzViewModel
 import com.example.gz.main.ui.MainViewModel
 import com.example.gz.media.domain.playlist.PlaylistInteractor
 import com.example.gz.media.ui.displayPlaylist.DisplayPlaylistViewModel
@@ -25,6 +26,10 @@ val viewModelModule = module {
 
     viewModel {
         ServicesGzViewModel (get(), get())
+    }
+
+    viewModel {
+        KlassGzViewModel (get())
     }
 
     viewModel {

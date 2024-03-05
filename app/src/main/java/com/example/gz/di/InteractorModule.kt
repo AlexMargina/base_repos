@@ -2,6 +2,8 @@ package com.example.gz.di
 
 import com.example.gz.auth.domain.AuthInteractor
 import com.example.gz.auth.domain.AuthInteractorImpl
+import com.example.gz.klassGz.domain.KlassGzInteractor
+import com.example.gz.klassGz.domain.KlassGzInteractorImpl
 import com.example.gz.media.domain.favorite.FavoriteInteractor
 import com.example.gz.media.domain.favorite.FavoriteInteractorImpl
 import com.example.gz.media.domain.newPlaylist.NewPlaylistInteractor
@@ -23,6 +25,8 @@ import org.koin.dsl.module
 val interactorModule = module {
 
     single<AuthInteractor> { AuthInteractorImpl(get()) }
+
+    single<KlassGzInteractor> { KlassGzInteractorImpl() }
 
     single<ServicesGzInteractor> { ServicesGzInteractorImpl(get()) }
 

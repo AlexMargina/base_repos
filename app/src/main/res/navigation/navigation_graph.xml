@@ -24,6 +24,12 @@
             app:destination="@id/mediaFragment" />
     </fragment>
     <fragment
+        android:id="@+id/klassFragment"
+        android:name="com.example.gz.klassGz.ui.KlassGzFragment"
+        android:label="ServicesFragment"
+        tools:layout="@layout/fragment_klass_gz" >
+    </fragment>
+    <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.gz.setting.ui.SettingsFragment"
         android:label="SettingsFragment"
