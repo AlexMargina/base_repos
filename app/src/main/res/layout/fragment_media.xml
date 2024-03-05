@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:theme="@style/Theme.PlaylistMaker"
-    tools:context="com.example.playlistmaker.main.ui.MainActivity">
+    tools:context="com.example.gz.main.ui.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

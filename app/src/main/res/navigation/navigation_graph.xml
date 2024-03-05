@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.playlistmaker.auth.ui.AuthFragment"
+        android:name="com.example.gz.auth.ui.AuthFragment"
         android:label="AuthFragment"
         tools:layout="@layout/fragment_auth" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/servicesFragment"
-        android:name="com.example.playlistmaker.servicesGz.ui.ServicesGzFragment"
+        android:name="com.example.gz.servicesGz.ui.ServicesGzFragment"
         android:label="ServicesFragment"
         tools:layout="@layout/fragment_services_gz" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.playlistmaker.setting.ui.SettingsFragment"
+        android:name="com.example.gz.setting.ui.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.playlistmaker.search.ui.SearchFragment"
+        android:name="com.example.gz.search.ui.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/mediaFragment"
-        android:name="com.example.playlistmaker.media.ui.MediaFragment"
+        android:name="com.example.gz.media.ui.MediaFragment"
         android:label="MediaFragment"
         tools:layout="@layout/fragment_media" >
         <action
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/playlistFragment"
-        android:name="com.example.playlistmaker.media.ui.playlist.PlaylistFragment"
+        android:name="com.example.gz.media.ui.playlist.PlaylistFragment"
         android:label="fragment_playlist"
         tools:layout="@layout/fragment_playlist" >
         <action
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.example.playlistmaker.media.ui.favorite.FavoriteFragment"
+        android:name="com.example.gz.media.ui.favorite.FavoriteFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/newPlaylistFragment"
-        android:name="com.example.playlistmaker.media.ui.newPlaylist.NewPlaylistFragment"
+        android:name="com.example.gz.media.ui.newPlaylist.NewPlaylistFragment"
         android:label="fragment_new_playlist"
         tools:layout= "@layout/fragment_new_playlist" >
         <action
@@ -97,12 +97,12 @@
     </fragment>
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.playlistmaker.main.ui.MainActivity"
+        android:name="com.example.gz.main.ui.MainActivity"
         android:label="fragment_media"
         tools:layout="@layout/fragment_media" />
     <fragment
         android:id="@+id/playerFragment"
-        android:name="com.example.playlistmaker.player.ui.PlayerFragment"
+        android:name="com.example.gz.player.ui.PlayerFragment"
         android:label="PlayerFragment"
         tools:layout="@layout/fragment_player">
         <action
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayPlaylist"
-        android:name="com.example.playlistmaker.media.ui.displayPlaylist.DisplayPlaylistFragment"
+        android:name="com.example.gz.media.ui.displayPlaylist.DisplayPlaylistFragment"
         android:label="DisplayPlaylist"
         tools:layout="@layout/fragment_display_playlist">
         <action
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/updatePlaylistFragment"
-        android:name="com.example.playlistmaker.media.ui.updatePlaylist.UpdatePlaylistFragment"
+        android:name="com.example.gz.media.ui.updatePlaylist.UpdatePlaylistFragment"
         android:label="UpdatePlaylistFragment"
         tools:layout="@layout/fragment_new_playlist">
         <action
